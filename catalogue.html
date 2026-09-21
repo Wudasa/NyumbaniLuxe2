@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Collection — Nyumbani Luxe</title>
+<meta name="description" content="Browse the full Nyumbani Luxe catalogue — considered pieces for dining, kitchen, bedroom, bathroom and ritual moments, delivered across Kenya.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="site-header-mount"></div>
+
+<main class="wrap" style="padding-top:3.5rem;padding-bottom:3.5rem;">
+  <div class="cat-hero">
+    <div>
+      <p class="eyebrow">The collection</p>
+      <h1 class="font-display">Objects for <em>living.</em></h1>
+    </div>
+    <p>Considered pieces for the rooms, rituals and everyday moments that make a home yours.</p>
+  </div>
+
+  <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1.25rem;">
+    <div class="filter-pills" id="categoryPills" aria-label="Filter by collection"></div>
+
+    <div class="toolbar">
+      <button class="filters-toggle" id="filtersToggle">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7"/><path d="M4 10V3"/><path d="M12 21v-9"/><path d="M12 8V3"/><path d="M20 21v-5"/><path d="M20 12V3"/><path d="M2 14h4"/><path d="M10 8h4"/><path d="M18 16h4"/></svg>
+        Filters
+      </button>
+      <div class="search-field" style="min-width:220px;max-width:320px;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--brass);"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="searchInput" placeholder="Search by name, category or SKU" aria-label="Search products by name, category or SKU">
+        <div class="search-suggestions hidden" id="searchSuggestions"></div>
+      </div>
+      <label class="sort-label">Sort by
+        <select id="sortSelect">
+          <option>Featured</option>
+          <option>Price: low to high</option>
+          <option>Price: high to low</option>
+          <option>Name: A–Z</option>
+          <option>Name: Z–A</option>
+        </select>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </label>
+    </div>
+
+    <div class="filters-panel" id="filtersPanel">
+      <div class="quick-price" id="quickPrice">
+        <span>Quick price</span>
+        <!-- buttons injected by JS -->
+      </div>
+      <div class="filters-row">
+        <div class="price-slider-wrap">
+          <div class="top">
+            <span>Custom price range</span>
+            <strong id="priceRangeLabel">KSh 0 – KSh 50,000+</strong>
+          </div>
+          <div class="price-slider">
+            <div class="track"></div>
+            <div class="range" id="sliderRange"></div>
+            <input type="range" id="minPrice" min="0" max="50000" step="500" value="0" aria-label="Minimum price">
+            <input type="range" id="maxPrice" min="0" max="50000" step="500" value="50000" aria-label="Maximum price">
+          </div>
+        </div>
+        <label class="stock-check">
+          <input type="checkbox" id="inStockOnly">
+          In stock only
+        </label>
+      </div>
+      <div class="filters-foot">
+        <button class="clear-link" id="clearFilters">Clear all
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m18 6-12 12"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="results-bar">
+    <span id="resultsCount"></span>
+    <span class="pageof">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:var(--brass);"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      <span id="pageOfLabel"></span>
+    </span>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+  <div class="empty-state hidden" id="emptyState">
+    <p>Nothing found yet.</p>
+    <button class="btn" id="emptyClear" style="margin-top:1.25rem;background:none;color:var(--brass);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.65rem;">Clear filters &rarr;</button>
+  </div>
+
+  <nav class="pagination hidden" id="pagination" aria-label="Catalogue pagination"></nav>
+</main>
+
+<div id="site-footer-mount"></div>
+
+<script src="js/icons.js"></script>
+<script src="data/products.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script src="js/catalogue.js"></script>
+</body>
+</html>
